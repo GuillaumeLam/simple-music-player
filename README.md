@@ -78,10 +78,10 @@ Parameters (one or the other, name has precedence):
 - url
 
 Play by name:
-`curl -X POST localhost:8080/play?name=cantina-band.wav`
+`curl -X POST 'localhost:8080/play?name=cantina-band.wav'`
 
 Play by url:
-`curl -X POST localhost:8080/play?url=<asset-url>`
+`curl -X POST 'localhost:8080/play?url=<asset-url>'`
 
 **Playing by URL will cause the song to be cached, so it is available to be
 played by name**
