@@ -1,8 +1,10 @@
 from flask import Flask, make_response, request
 from player import Player
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app, resources={r"*": {"origins": "*"}})
 player = Player()
 
 
@@ -14,10 +16,21 @@ def play():
         else:
             return make_response('failed to play {}'.format(request.args['name']), 400)
     elif 'url' in request.args:
-        file_name = player.download(request.args['url'])
+        url = request.args['url']
+
+        # handle URL with query parameters
+        if 'Key-Pair-Id' in request.args:
+            url += '&Key-Pair-Id=' + request.args['Key-Pair-Id']
+        if 'Expires' in request.args:
+            url += '&Expires=' + request.args['Expires']
+
+        print('Using URL:', url)
+
+        file_name = player.download(url)
+
         player.play(file_name)
 
-        return make_response('playing', 200)
+        return make_response('playing downloaded file: {}'.format(file_name), 200)
     else:
         return make_response('you need to pass either name or url', 400)
 
@@ -56,6 +69,13 @@ def download():
     if 'url' not in request.args:
         return make_response('Missing url argument', 400)
     else:
-        player.download(request.args['url'])
+        url = request.args['url']
 
-        return make_response('Downloaded file', request.args['url'])
+        if 'Key-Pair-Id' in request.args:
+            url += '&Key-Pair-Id=' + request.args['Key-Pair-Id']
+        if 'Expires' in request.args:
+            url += '&Expires=' + request.args['Expires']
+
+        file_name = player.download(url)
+
+        return make_response('Downloaded file: {}'.format(file_name), 200)
