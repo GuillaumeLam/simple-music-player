@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://meyerweb.com/eric/tools/css/reset/reset.css"
+    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<style type="text/css">
+
+  table {
+    
+    width: 100%;
+    margin: 50px auto;
+    float: none;
+}
+td {
+  width: 25%;
+  position: relative;
+}
+td:after {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+td .content {
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+</style>
+
+    <link rel="stylesheet" href="main.css" />
+    <title>Mini Player</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Mood Player</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="https://www.youtube.com/">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>-->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="jumbotron">
+  <div class="container text-center">
+  <h1 class="display-4">Welcome!</h1>
+  <p class="lead">Mood Player creates playlist according to your mood. Are you stressed and in need of relaxation? We're here to help! </p>
+  <hr class="my-4">
+  <p>Select a category to begin listening.</p>
+  <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
+</div>
+</div>
+
+<div class="container">
+<table class="table-center text-center">
+  <tr>
+    <td><div class="content"><button type="button" style ="width: 100%;height: 100%;background-color:#98e698; " class="btn btn-lg" onclick="location.href = '{{ url_for('musicPlayer') }}';">Happy</button></div>
+      
+    </td>
+    <td>
+      <div class="content"><button type="button" style ="width: 100%;height: 100%; background-color:#99ddff ;" class="btn btn-lg" onclick="location.href = 'musicPlayer.html';">Sad</button></div>
+    </td>
+    <td><div class="content"><button type="button" style ="width: 100%;height: 100%; background-color: ;" class="btn  btn-lg" onclick="location.href = 'musicPlayer.html';">Romantic</button></div>
+      
+    </td>
+    <td>
+      <div class="content"><button type="button" style ="width: 100%;height: 100%; background-color: #cccccc;" class="btn btn-lg" onclick="location.href = 'musicPlayer.html';">Somber</button></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="content"><button type="button" style ="width: 100%;height: 100%; background-color:#ccccff ;" class="btn btn-lg" onclick="location.href = 'musicPlayer.html';">Relaxed</button></div>
+      
+    </td>
+    <td>
+      <div class="content"><button type="button" style ="width: 100%;height: 100%; background-color: #ffccff;" class="btn btn-lg" onclick="location.href = 'musicPlayer.html';">Romantic</button></div>
+    </td>
+    <td><div class="content"><button type="button" style ="width: 100%;height: 100%; background-color:#ffdd99 ;" class="btn btn-lg" onclick="location.href = 'musicPlayer.html';">Energetic</button></div>
+      
+    </td>
+    <td>
+      <div class="content"><button type="button" style ="width: 100%;height: 100%; background-color: #ff9999;" class="btn btn-lg" onclick="location.href = 'musicPlayer.html';">Angry</button></div>
+    </td>
+  </tr>
+  
+
+</table>
+</div>
+<!--<body class="d-flex flex-column">
+  <div id="page-content">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-md-7">
+          <h1 class="font-weight-light mt-4 text-white">Sticky Footer using Flexbox</h1>
+          <p class="lead text-white-50">Use just two Bootstrap 4 utility classes and three custom CSS rules and you will have a flexbox enabled sticky footer for your website!</p>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Mood Player</small>
+    </div>
+  </footer>
+<!--</body>-->
+
+
+  </body>
+</html>

@@ -1,4 +1,4 @@
-from flask import Flask, make_response, request
+from flask import Flask, make_response, request, render_template, url_for
 from player import Player
 from flask_cors import CORS
 
@@ -7,6 +7,13 @@ app = Flask(__name__)
 CORS(app, resources={r"*": {"origins": "*"}})
 player = Player()
 
+@app.route('/')
+def index():
+	return render_template('index.html')
+
+@app.route('/musicPlayer/')
+def musicPlayer():
+	return render_template('musicPlayer.html')
 
 @app.route('/play', methods=['POST'])
 def play():
